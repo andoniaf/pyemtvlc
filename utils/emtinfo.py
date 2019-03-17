@@ -1,7 +1,7 @@
 import requests
 
 
-def get_info(numParada):
+def get_info(numParada, numLinea=''):
     cookies = {
         '__utma': '25540009.1894639261.1539253515.1550245270.1552753595.4',
         '__utmz': '25540009.1552753595.4.3.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)',
@@ -24,6 +24,7 @@ def get_info(numParada):
         'parada': numParada,
         'adaptados': '0',
         'usuario': 'movilemt',
+        'linea': numLinea,
         'idioma': 'es'
     }
     emt_url = 'http://movil.emtvalencia.es/mod_tiempo/busca_parada.php'

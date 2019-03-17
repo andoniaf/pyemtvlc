@@ -3,17 +3,17 @@ import utils.emtinfo as emtinfo
 
 
 # Create 'sopup' object
-def soup_html(numParada):
+def soup_html(numParada, numLinea=''):
     # Get raw info from emt web
-    raw_data = emtinfo.get_info(numParada)
+    raw_data = emtinfo.get_info(numParada, numLinea)
     soup = bs(raw_data.text, "html.parser")
     return soup
 
 
 # Parsing to get next buses
-def next_buses(numParada):
+def next_buses(numParada, numLinea=''):
     # Get soup object
-    data = soup_html(numParada)
+    data = soup_html(numParada, numLinea)
     # Debug vars
     # spans = data.select('span')
     # # span with line img
