@@ -19,13 +19,13 @@ def next_buses(numParada):
     # # span with line img
     # span_linea = data.find_all('span', {'class': 'imagenParada'})
     # line and time remaining span
-    span_tiempos = data.find_all('span', {'class': 'llegadaHome'})
+    spanTimeRemain = data.find_all('span', {'class': 'llegadaHome'})
     # img containing line
     imgElem = data.select('img')
     buses = ''
     linea = ''
     # Loop showing line and time remaining
-    for span, img in zip(span_tiempos, imgElem):
+    for span, img in zip(spanTimeRemain, imgElem):
         linea = img.get('title')
         show = span.getText(strip=True)
         # show = show.encode('utf-8')
