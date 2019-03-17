@@ -1,4 +1,6 @@
-# pyemtvlc
+# pyemtvlc  
+[![PyPI version](https://badge.fury.io/py/pyemtvlc.svg)](https://badge.fury.io/py/pyemtvlc) [![Build Status](https://travis-ci.org/andoniaf/pyemtvlc.svg?branch=master)](https://travis-ci.org/andoniaf/pyemtvlc)
+
 Python package to query EMT Valencia (bus).
 
 ![](https://raw.githubusercontent.com/andoniaf/pyemtvlc/master/img/pyemtvlc_logo_small.png)
