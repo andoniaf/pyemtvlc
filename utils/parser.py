@@ -1,11 +1,11 @@
 from bs4 import BeautifulSoup as bs
-import utils.emtinfo as info
+import utils.emtinfo as emtinfo
 
 
 # Create 'sopup' object
 def soup_html(numParada):
     # Get raw info from emt web
-    raw_data = info.get_parada(numParada)
+    raw_data = emtinfo.get_info(numParada)
     soup = bs(raw_data, "html.parser")
     return soup
 
