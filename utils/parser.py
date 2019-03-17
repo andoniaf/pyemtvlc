@@ -4,27 +4,27 @@ import utils.emtinfo as info
 
 # Create 'sopup' object
 def soup_html(numParada):
-    # Datos que provienen de la funcion get_parada
+    # Get raw info from emt web
     raw_data = info.get_parada(numParada)
     soup = bs(raw_data, "html.parser")
     return soup
 
 
 # Parsing to get next buses
-def prime_buses(numParada):
-    # Objeto que proviene de la funcion soup_html
+def next_buses(numParada):
+    # Get soup object
     data = soup_html(numParada)
-    # Todos los span
+    # Debug vars
     # spans = data.select('span')
-    # Los span con la imagen de la linea
+    # # span with line img
     # span_linea = data.find_all('span', {'class': 'imagenParada'})
-    # Los span con el nombre de la linea y el tiempo
+    # line and time remaining span
     span_tiempos = data.find_all('span', {'class': 'llegadaHome'})
-    # Los img donde aparece la linea
+    # img containing line
     imgElem = data.select('img')
     buses = ''
     linea = ''
-    # Bucle para mostrar linea y tiempo
+    # Loop showing line and time remaining
     for span, img in zip(span_tiempos, imgElem):
         linea = img.get('title')
         show = span.getText(strip=True)
@@ -37,7 +37,8 @@ def prime_buses(numParada):
         buses = "La linea " + numLinea + " no pasa por esta parada."
         return buses
     elif buses == 'None: LINEA NO ENCONTRADA\n':
-        buses = "Todavia no hay estimaciones para la linea " + numLinea + " en esta parada."
+        buses = "Todavia no hay estimaciones para la linea " + numLinea
+        buses += " en esta parada."
         return buses
     if linea == 'None':
         buses = "Temporalmente fuera de servicio."
