@@ -30,7 +30,3 @@ Parada: 636
 ```
 
 ------
-## TODO
-- [ ]: Error management
-- [ ]: Testing
-- [ ]: Search some lib like getops for bash to manage args
