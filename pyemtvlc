@@ -12,6 +12,10 @@ else:
         msg = "No has introducido un número de parada válido."
     else:
         print("Parada: " + numParada)
-        msg = parser.next_buses(numParada)
+        numLinea = ''
+        if len(sys.argv) > 2:
+            numLinea = numLinea + sys.argv[2]
+            numLinea = numLinea.lower()
+        msg = parser.next_buses(numParada, numLinea)
 
 print(msg)
