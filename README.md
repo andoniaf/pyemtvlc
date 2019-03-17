@@ -1,7 +1,7 @@
 # pyemtvlc
 Python package to query EMT Valencia (bus).
 
-![](img/pyemtvlc_logo_small.png)
+![](https://raw.githubusercontent.com/andoniaf/pyemtvlc/master/img/pyemtvlc_logo_small.png)
 
 Information obtained from [EMT Valencia](http://movil.emtvalencia.es).
 
