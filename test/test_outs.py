@@ -11,6 +11,6 @@ class BasicOutputs(TestCase):
         output = str(popen(['pyemtvlc', '13'], stdout=PIPE).communicate()[0])
         self.assertTrue('Parada: 13' in output)
 
-    def test_returns_parada_echo(self):
+    def test_returns_unvalid_parada_echo(self):
         output = str(popen(['pyemtvlc', 'abcd'], stdout=PIPE).communicate()[0])
         self.assertTrue('No has introducido un' in output)
