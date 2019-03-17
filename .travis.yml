@@ -6,9 +6,8 @@ install:
   - pip install pylint flake8
 # command to run tests
 script:
-#  - flake8 --ignore=E501
   - pylint pyemtvlc utils/*.py -E
-  - flake8
+  - flake8 --ignore=E501
 deploy:
   provider: pypi
   user: andoniaf

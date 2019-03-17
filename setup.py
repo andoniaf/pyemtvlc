@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='pyemtvlc',
-    version='0.1.6',
+    version='0.1.6b',
     scripts=['pyemtvlc'],
     author="Andoni Alonso F.",
     author_email="andonialonsof@gmail.com",
