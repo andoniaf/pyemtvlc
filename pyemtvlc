@@ -5,7 +5,7 @@ import sys
 
 if len(sys.argv) == 1:
     msg = "Uso:\n   pyemtvlc <Número Parada> <Linea (Opcional)>\n"
-    msg += "   pyemtvlc -s <Número Tarjeta>"
+    # msg += "   pyemtvlc -s <Número Tarjeta>"
 else:
     numParada = sys.argv[1]
     if not numParada.isdigit():
