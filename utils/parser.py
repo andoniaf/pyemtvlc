@@ -28,10 +28,8 @@ def next_buses(numParada, numLinea=''):
     for span, img in zip(spanTimeRemain, imgElem):
         linea = img.get('title')
         show = span.getText(strip=True)
-        # show = show.encode('utf-8')
         linea = str(linea)
         show = str(show)
-        # print(linea, show)
         buses += linea + ': ' + show + "\n"
     if buses == 'None: PARADA NO CORRESPONDE\n':
         buses = "La linea " + numLinea + " no pasa por esta parada."
