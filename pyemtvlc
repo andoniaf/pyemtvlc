@@ -1,27 +1,17 @@
 #!/usr/bin/env python
-import utils.parser
+import utils.parser as parser
+import sys
 
 
 if len(sys.argv) == 1:
     msg = "Uso:\n   pyemtvlc <Número Parada> <Linea (Opcional)>\n"
     msg += "   pyemtvlc -s <Número Tarjeta>"
 else:
-    numParada = numParada + sys.argv[1]
+    numParada = sys.argv[1]
     if not numParada.isdigit():
         msg = "No has introducido un número de parada válido."
     else:
         print("Parada: " + numParada)
-        if len(sys.argv) > 2:
-            numLinea = numLinea + sys.argv[2]
-            numLinea = numLinea.lower()
-            with open(path+'numeroLineas.txt') as file:
-                lineasEMT = file.read().splitlines()
-                if numLinea in lineasEMT:
-                    print("Linea: " + numLinea)
-                else:
-                    print("La linea \"" + numLinea + "\" no existe.")
-                    numLinea = ''
-
-        msg = next_buses(numParada)
+        msg = parser.next_buses(numParada)
 
 print(msg)

@@ -6,7 +6,7 @@ import utils.emtinfo as emtinfo
 def soup_html(numParada):
     # Get raw info from emt web
     raw_data = emtinfo.get_info(numParada)
-    soup = bs(raw_data, "html.parser")
+    soup = bs(raw_data.text, "html.parser")
     return soup
 
 
