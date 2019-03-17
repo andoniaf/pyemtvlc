@@ -27,5 +27,5 @@ def get_info(numParada):
         'idioma': 'es'
     }
     emt_url = 'http://movil.emtvalencia.es/mod_tiempo/busca_parada.php'
-    response = requests.post(emt_url, headers=headers, cookies=cookies, data=data)
-    return response
+    res = requests.post(emt_url, headers=headers, cookies=cookies, data=data)
+    return res
