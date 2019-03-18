@@ -19,11 +19,9 @@ def parse_soup(soup):
     info = []
     for span, img in zip(spanTimeData, imgElem):
         linea = img.get('title')
-        print(linea)
         time = span.getText(strip=True)
-        print(time)
-        info = {linea: time}
-        info.append(info)
+        busTime = [linea, time]
+        info.append(busTime)
     return info
 
 
