@@ -46,3 +46,9 @@ def generate_msg(info):
         for row in info:
             output += (' '.join([str(elem) for elem in row]) + '\n')
     return output
+
+
+def next_buses(numParada, numLinea=''):
+    soup_obj = generate_soup(numParada, numLinea)
+    info = parse_soup(soup_obj)
+    return generate_msg(info)
