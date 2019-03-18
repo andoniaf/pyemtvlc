@@ -3,12 +3,11 @@ python:
   - 3.6
 install:
   - pip install -r requirements.txt
-  - pip install pylint flake8 bandit tox
-# command to run tests
+  - pip install tox
 script:
-  - pylint pyemtvlc utils/*.py -E
-  - flake8 --ignore=E501
-  - bandit pyemtvlc utils/*.py
+  #- pylint pyemtvlc utils/*.py -E
+  #- flake8 --ignore=E501
+  #- bandit pyemtvlc utils/*.py
   - tox
 deploy:
   provider: pypi
