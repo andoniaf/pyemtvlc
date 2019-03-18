@@ -34,14 +34,15 @@ def error_output(inMsg):
     output = error_msg.get(inMsg, "ERROR")
     return output
 
+
 # Output parsed info and errors
 def next_buses(info):
     output = ''
     # Check if no data
     if info[0][0] is None:
-        #Check el values para la excep
+        # Get error_msg
         output = error_output(info[0][1])
     else:
         for row in info:
-            output+= (' '.join([str(elem) for elem in row]) + '\n')
+            output += (' '.join([str(elem) for elem in row]) + '\n')
     return output
