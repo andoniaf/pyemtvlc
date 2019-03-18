@@ -25,37 +25,23 @@ def parse_soup(soup):
     return info
 
 
-# Manage info
-def next_buses(info):
-    buses = ''
-    firstKey = next(iter(info[0]))
-    if str(firstKey) == 'None':
-        #Check el values para la excep
-    if info[0] == {None: 'SIN ESTIMACIONES'}:
-        buses = "Sin estimaciones. ¿Pasa esta linea por esta parada?"
-    elif info[0] == {None: 'Temporalmente no disponible. Actualiza la estimación en unos segundos.'}:
-        buses = "Sin estimaciones. ¿Pasa esta linea por esta parada?"
-    else:
-        for bus in info:
-            buses += str(bus) + "\n"
-    return buses
+def error_output(inMsg):
+    error_msg = {
+        'SIN ESTIMACIONES': 'Sin estimaciones. ¿Seguro que esta linea pasa por esta parada?',
+        'PARADA NO CORRESPONDE': 'La linea no corresponde con esta parada',
+        'Temporalmente no disponible. Actualiza la estimación en unos segundos.': 'La parada no existe o esta temporalmente no disponible'
+    }
+    output = error_msg.get(inMsg, "ERROR")
+    return output
 
-    # Loop showing line and time remaining
-    for span, img in zip(spanTimeData, imgElem):
-        linea = img.get('title')
-        show = span.getText(strip=True)
-        linea = str(linea)
-        show = str(show)
-        buses += linea + ': ' + show + "\n"
-    if buses == 'None: PARADA NO CORRESPONDE\n':
-        buses = "La linea " + numLinea + " no pasa por esta parada."
-        return buses
-    elif buses == 'None: LINEA NO ENCONTRADA\n':
-        buses = "Todavia no hay estimaciones para la linea " + numLinea
-        buses += " en esta parada."
-        return buses
-    if linea == 'None':
-        buses = "Temporalmente fuera de servicio."
-    if buses == '':
-        buses += "No quedan buses... O la parada introducida no existe."
-    return buses
+# Output parsed info and errors
+def next_buses(info):
+    output = ''
+    # Check if no data
+    if info[0][0] is None:
+        #Check el values para la excep
+        output = error_output(info[0][1])
+    else:
+        for row in info:
+            output+= (' '.join([str(elem) for elem in row]) + '\n')
+    return output
