@@ -16,7 +16,7 @@ deploy:
   password:
     secure: qK2bgKkzn0/me0Ab5w7tCVPVFnlflVygpjqOiwyUzU7TqoC/3qDau/m/oEKSNdgy+or0aJS62vHM6VjpeBXqogl8RFZ+DPTtPTu7blOhDUEoTMaIW6Wi4mpXeaPZG+yfWTqKB7lFUoxhPYkZQilDTunfHps9un/foEFuLXNw7hFJGHh/w7xk947v5i2VJl9cmw2diZz1T2nQ7XE9m6wr7eU+MCL9/Rv68NQMG/o5gt/7UOSWdpTa5lQyksJ+jfOfE63XjFSWxk6b5b6r+7It2cN4nr3ZfqLxMMcXAlgA73eZHYa9kQaDyubmCQWjWTWeubdIGankqSt3Ce/klorcQ605uEEMS8n7uH0Giey1Wn/q8ht5YEIsuV25DRwUCowSPHGxY8XqMjnHoThAJNv6pyqG3Zr3HvmqJLt8DGWvrs0r4wB0hgvp3upEAvOT/J9IGK0nLtstQpG2lx/cBSm2V8HaYkPS40tNg0n3I8LamwD+3D5kSOlqB1OwTAi+kt+1Alt1+mQ1kAKN3d7hGCJpxPaJqmsKDoL+gQ/f8s17cHL8BRUKrvSBV/xVzueEOqLN8cNOZAXW1MjVnM5UwyFOtQHRbvKK2aLAAKc1Qs23+aiOxJ3FAY9EQCmzUd5pke1dKZGB4JffLd3JxT3z67I1iY7+BX3vWW4byd1TYjB/8Ms=
   skip_existing: true
-#  on:
-#    branches:
-#      only:
-#        - master
+  on:
+    branches:
+      only:
+        - master
