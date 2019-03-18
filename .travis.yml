@@ -6,11 +6,16 @@ python:
 install:
   - pip install -r requirements.txt
   - pip install tox-travis
+matrix:
+  include:
+    - python: 3.6
+      env:
+       - TOX_ENV=py36
+    - python: 3.7
+      env:
+        - TOX_ENV=py37
 script:
-  #- pylint pyemtvlc utils/*.py -E
-  #- flake8 --ignore=E501
-  #- bandit pyemtvlc utils/*.py
-  - tox
+  - tox -e $TOX_ENV,linters
 deploy:
   provider: pypi
   user: andoniaf
