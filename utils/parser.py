@@ -35,8 +35,8 @@ def error_output(inMsg):
     return output
 
 
-# Output parsed info and errors
-def next_buses(info):
+# Generate msg with parsed info or errors
+def generate_msg(info):
     output = ''
     # Check if no data
     if info[0][0] is None:
