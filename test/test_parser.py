@@ -1,6 +1,5 @@
 from unittest import TestCase
-from utils.parser import generate_msg, error_output, parse_soup
-from unittest.mock import MagicMock
+from utils.parser import generate_msg, parse_soup
 from bs4 import BeautifulSoup as bs
 
 
