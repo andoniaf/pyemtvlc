@@ -17,8 +17,7 @@ def main():
             if len(sys.argv) > 2:
                 numLinea = numLinea + sys.argv[2]
                 numLinea = numLinea.lower()
-                msg = next_buses(numParada, numLinea)
-
+            msg = next_buses(numParada, numLinea)
     print(msg)
 
 
