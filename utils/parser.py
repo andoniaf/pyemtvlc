@@ -53,6 +53,6 @@ def generate_msg(info):
 
 
 def next_buses(numParada, numLinea=''):
-    soup_obj = generate_soup(numParada, numLinea)
+    soup_obj = generate_soup(numParada, numLinea.upper())
     info = parse_soup(soup_obj)
     return generate_msg(info)
