@@ -12,6 +12,9 @@ def generate_soup(numParada, numLinea=''):
 
 # Parse soup object to extract info
 def parse_soup(soup):
+    # If EMT know nothing, we are John Snow too...
+    if not soup.text:
+        return [[None, '']]
     # data is inside spans
     spanTimeData = soup.find_all('span', {'class': 'llegadaHome'})
     # img tag contain line num
@@ -29,7 +32,8 @@ def error_output(inMsg):
     error_msg = {
         'SIN ESTIMACIONES': 'Sin estimaciones. ¿Seguro que esta linea pasa por esta parada?',
         'PARADA NO CORRESPONDE': 'La linea no corresponde con esta parada',
-        'Temporalmente no disponible. Actualiza la estimación en unos segundos.': 'La parada no existe o esta temporalmente no disponible'
+        'Temporalmente no disponible. Actualiza la estimación en unos segundos.': 'La parada no existe o esta temporalmente no disponible',
+        '': 'La parada no existe o esta temporalmente no disponible'
     }
     output = error_msg.get(inMsg, "ERROR")
     return output
