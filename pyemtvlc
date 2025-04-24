@@ -4,6 +4,13 @@ from utils.parser import next_buses
 
 
 def main():
+    # Display deprecation message
+    print("\n*** DEPRECATED ***")
+    print("This tool has been deprecated because EMT Valencia took down the mobile website")
+    print("that was used to parse the bus information.")
+    print("The original functionality is preserved below but will not work correctly.")
+    print("***************\n")
+    
     if len(sys.argv) == 1:
         msg = "Uso:\n   pyemtvlc <Número Parada> <Linea (Opcional)>\n"
         # msg += "   pyemtvlc -s <Número Tarjeta>"
@@ -17,7 +24,9 @@ def main():
             if len(sys.argv) > 2:
                 numLinea = numLinea + sys.argv[2]
                 numLinea = numLinea.lower()
-            msg = next_buses(numParada, numLinea)
+            # Override the next_buses call to return the deprecation message
+            # msg = next_buses(numParada, numLinea)
+            msg = "DEPRECATED: EMT Valencia took down the mobile website used to parse the information."
     print(msg)
 
 
