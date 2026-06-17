@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='pyemtvlc',
-    version='0.3.6',
+    version='1.0.0',
     scripts=['pyemtvlc'],
     author="Andoni Alonso F.",
     author_email="andonialonsof@gmail.com",
@@ -15,7 +15,7 @@ setuptools.setup(
     url="https://github.com/andoniaf/pyemtvlc",
     packages=setuptools.find_packages(),
     install_requires=[
-        'requests', 'beautifulsoup4'
+        'requests'
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
