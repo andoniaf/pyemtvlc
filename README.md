@@ -5,7 +5,7 @@ Python package to query EMT Valencia (bus).
 
 ![](https://raw.githubusercontent.com/andoniaf/pyemtvlc/master/img/pyemtvlc_logo_small.png)
 
-Information obtained from [EMT Valencia](http://movil.emtvalencia.es).
+Information obtained from [EMT Valencia](https://geoportal.emtvalencia.es).
 
 # Examples
 
