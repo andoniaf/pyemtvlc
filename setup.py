@@ -17,6 +17,7 @@ setuptools.setup(
     install_requires=[
         'requests'
     ],
+    python_requires='>=3.11',
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
