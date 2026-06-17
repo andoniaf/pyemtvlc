@@ -1,31 +1,40 @@
-from bs4 import BeautifulSoup as bs
+import xml.etree.ElementTree as ET
 import utils.emtinfo as emtinfo
 
 
-# Create 'soup' object
-def generate_soup(numParada, numLinea=''):
-    # Get raw info from emt web
+def get_xml(numParada, numLinea=''):
     raw_data = emtinfo.get_info(numParada, numLinea)
-    soup = bs(raw_data.text, "html.parser")
-    return soup
+    return ET.fromstring(raw_data.text)
 
 
-# Parse soup object to extract info
-def parse_soup(soup):
-    # If EMT know nothing, we are John Snow too...
-    if not soup.text:
+def parse_xml(root):
+    # root tag is <estimacion>, buses are inside <solo_parada> or <parada_linea>
+    container = root.find('solo_parada')
+    if container is None:
+        container = root.find('parada_linea')
+    if container is None:
         return [[None, '']]
-    # data is inside spans
-    spanTimeData = soup.find_all('span', {'class': 'llegadaHome'})
-    # img tag contain line num
-    imgElem = soup.select('img')
+
+    buses = container.findall('bus')
+    if not buses:
+        return [[None, '']]
+
     info = []
-    for span, img in zip(spanTimeData, imgElem):
-        linea = img.get('title')
-        time = span.getText(strip=True)
-        busTime = [linea, time]
-        info.append(busTime)
-    return info
+    for bus in buses:
+        linea = bus.findtext('linea', '').strip()
+        destino = bus.findtext('destino', '').strip()
+        minutos = bus.findtext('minutos', '').strip()
+        hora = bus.findtext('horaLlegada', '').strip()
+        error = bus.findtext('error', '').strip()
+
+        if error:
+            info.append([None, error])
+            continue
+
+        time = hora if not minutos else minutos
+        info.append([linea, destino + ' - ' + time])
+
+    return info if info else [[None, '']]
 
 
 def error_output(inMsg):
@@ -35,16 +44,12 @@ def error_output(inMsg):
         'Temporalmente no disponible. Actualiza la estimación en unos segundos.': 'La parada no existe o esta temporalmente no disponible',
         '': 'La parada no existe o esta temporalmente no disponible'
     }
-    output = error_msg.get(inMsg, "ERROR")
-    return output
+    return error_msg.get(inMsg, "ERROR")
 
 
-# Generate msg with parsed info or errors
 def generate_msg(info):
     output = ''
-    # Check if no data
     if info[0][0] is None:
-        # Get error_msg
         output = error_output(info[0][1])
     else:
         for row in info:
@@ -53,6 +58,6 @@ def generate_msg(info):
 
 
 def next_buses(numParada, numLinea=''):
-    soup_obj = generate_soup(numParada, numLinea.upper())
-    info = parse_soup(soup_obj)
+    root = get_xml(numParada, numLinea.upper())
+    info = parse_xml(root)
     return generate_msg(info)
