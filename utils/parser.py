@@ -4,7 +4,7 @@ import utils.emtinfo as emtinfo
 
 def get_xml(numParada, numLinea=''):
     raw_data = emtinfo.get_info(numParada, numLinea)
-    return ET.fromstring(raw_data.text)
+    return ET.fromstring(raw_data.content)
 
 
 def parse_xml(root):

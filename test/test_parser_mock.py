@@ -21,7 +21,7 @@ class TestParserMock(TestCase):
   <parada_linea/>
   <info/>
 </estimacion>"""
-        responses.add(responses.GET, EMT_URL, body=fake_data, status=200)
+        responses.add(responses.GET, EMT_URL, body=fake_data.encode('utf-8'), status=200)
         info = next_buses("19321")
         expected = 'Sin estimaciones. ¿Seguro que esta linea pasa por esta parada?'
         self.assertEqual(expected, info)
@@ -49,7 +49,7 @@ class TestParserMock(TestCase):
   <parada_linea/>
   <info/>
 </estimacion>"""
-        responses.add(responses.GET, EMT_URL, body=fake_data, status=200)
+        responses.add(responses.GET, EMT_URL, body=fake_data.encode('utf-8'), status=200)
         info = next_buses("1932", "9")
         expected = '9 Pl. Espanya - 6 min.\n9 Pl. Espanya - 10 min.\n'
         self.assertEqual(expected, info)
