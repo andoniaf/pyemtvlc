@@ -5,28 +5,30 @@ Python package to query EMT Valencia (bus).
 
 ![](https://raw.githubusercontent.com/andoniaf/pyemtvlc/master/img/pyemtvlc_logo_small.png)
 
-Information obtained from [EMT Valencia](http://movil.emtvalencia.es).
+Information obtained from [EMT Valencia](https://geoportal.emtvalencia.es).
 
 # Examples
 
-- Info about all lines of the bus stop. (636):
+- Info about all lines of the bus stop. (1054):
 ```
-➜ pyemtvlc 636  
-Parada: 636
-7: Pl. Espanya - 7 min.
-13: Pta.de la Mar - 8 min.
-7: Pl. Espanya - 25 min.
-13: Pta.de la Mar - 44 min.
-N7: Pl. Ajuntament - 22:38
-N7: Pl. Ajuntament - 23:03
+➜ pyemtvlc 1054
+Parada: 1054
+C2 Av. Arago - 7 min.
+10 Benimaclet - 7 min.
+10 Benimaclet - 16 min.
+12 C.Art.Faller - 16 min.
+93 Pass. Marítim - 18 min.
+C2 Av. Arago - 20 min.
+93 Pass. Marítim - 23 min.
+12 C.Art.Faller - 29 min.
 ```
 
-- Info about one line (7) of the bus stop (636):
+- Info about one line (12) of the bus stop (1054):
 ```
- ➜ pyemtvlc 636 7
-Parada: 636
-7: Pl. Espanya - 22 min.
-7: Pl. Espanya - 46 min.
+➜ pyemtvlc 1054 12
+Parada: 1054
+12 C.Art.Faller - 16 min.
+12 C.Art.Faller - 29 min.
 ```
 
 ------
